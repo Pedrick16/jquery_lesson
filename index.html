@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>jquery</title>
+</head>
+<body>
+    
+<a href="practice.html">aaa</a>
+<a href="form.html">bbb</a>
+
+    <h1 id="pogi">Pogi mo Pedrick </h1>
+    
+    <ul id="hide">
+        <li class="list">Mabango</li>
+        <li class="list">Matalino</li>
+        <li class="list">Masipag</li>
+        <li class="list">Masiyahin</li>
+        <li class="list">Mapagmahal</li>
+    </ul>
+
+    <br>
+    <ul id="lists">
+        <li class="list">Pedrick</li>
+    </ul>
+
+    <button id="btn-list-last">add li last</button>
+    <button id="btn-list-first">add li first</button>
+
+    <br><br>
+    <br>
+
+    <button id="btn-hide">Hide</button>
+    <button id="btn-show">Show</button>
+    <button id="btn-expand">Expand</button>
+    <br>
+    <br>
+    <button id="btn-fadein">fade in</button>
+    <button id="btn-fadeout">fade out</button>
+    <button id="btn-fadetoggle">fadeToggle</button>
+    <br>
+
+    <br>
+    <button id="btn-slideup">slide up</button>
+    <button id="btn-slidedown">slide down</button>
+    <button id="btn-slidefadetoggle">slide fadeToggle</button>
+    <br><br>
+    <button id="btn-add-text-style">text-style</button>
+    <button id="btn-only-text">only text</button>
+    <br><br><br><br><br><br>
+    
+    <label for="">Get value</label>
+    <br>
+    <input type="text" name="" id="name">
+    <button id="btn">Click</button>
+
+    <br><br><br>
+
+    <label for="">select</label>
+    <br>
+    <select  id="select1">
+        <option value=""></option>
+        <option value="op1">op1</option>
+        <option value="op2">op2</option>
+    </select>
+
+    <select  id="select2">
+    </select>
+  
+
+
+
+
+
+
+    
+
+    <script>
+        var hides = $('#hide')
+        var he1 = $('#pogi')
+
+        $(document).ready(function () {
+
+            $('#btn-hide').click(function () {
+                hides.hide(2000);
+            })
+
+            $('#btn-show').click(function () {
+                hides.show(2000);
+            })
+
+            $('#btn-fadeout').click(function () {
+                hides.fadeOut(2000);
+            })
+
+
+
+            $('#btn-fadein').click(function () {
+                hides.fadeIn(2000);
+
+            })
+
+
+
+            $('#btn-fadetoggle').click(function () {
+                hides.fadeToggle(2000);
+
+            })
+
+
+
+            $('#btn-slideup').click(function () {
+                hides.slideUp(3000);
+            })
+
+
+
+            $('#btn-slidedown').click(function () {
+                hides.slideDown(3000);
+
+            })
+
+            $('#btn-slidefadetoggle').click(function () {
+                    hides.slideToggle(1000);
+
+            })
+
+
+            $('#btn-expand').click(function () {
+                 
+                    he1.animate({
+                        fontSize: '20px',
+                        color: 'red',
+                        letterSpacing: '24px',
+                    });
+                    setTimeout(function (){
+                       he1.fadeOut()
+                    },3000)
+            })   
+
+
+            // for inserting text in html with style like bold, italic
+            $('#btn-add-text-style').on('click', function () {
+                   he1.html('<i>sobrang pogi mo Pedrick</i>')
+ 
+            }) 
+
+             // for inserting only text
+             $('#btn-only-text').on('click', function () {
+                   he1.text('sobrang pogi mo Pedrick')
+ 
+            }) 
+
+                // getting value for input text
+            $('#btn').on('click', function () {
+                var h1 = he1.text();
+                $('#name').val(h1)
+
+            }) 
+
+                 // Select and adding value in next select element
+            $('#select1').on('change', function () {
+                var select_value = this.value
+
+                if (select_value == "op1") {
+                    $('#select2').html(`
+                    <option value=""></option>
+                    <option value="op3">op1</option>
+                    <option value="op4">op2</option>
+                    `)
+                    hides.fadeOut(2000);
+
+
+                }else if(select_value == ""){
+                    $('#select2').html(`
+                    <option value=""></option>
+                    `)
+                }else if(select_value == "op2"){
+                    $('#select2').html(`
+                    <option value=""></option>
+                    `)
+                }
+
+
+            }) 
+
+                // adding to the last in list element 
+            $('#btn-list-last').on('click', function () {
+                $('#lists').append(`
+                    <li>Pogi</list>
+                `)
+
+            }) 
+
+
+                // adding to the last in list element 
+            $('#btn-list-first').on('click', function () {
+                $('#lists').prepend(`
+                    <li>Pogi</list>
+                `)
+
+            }) 
+
+
+     
+        
+        })  
+    </script>
+<!-- <script src="main.js"></script> -->
+</body>
+</html>
